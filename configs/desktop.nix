@@ -1,25 +1,19 @@
-{ config, pkgs, lib, inputs, ... }:
+{ pkgs, ... }:
 
 {
-  imports = [
-    inputs.lanzaboote.nixosModules.lanzaboote
-  ];
-
-  boot.loader.systemd-boot.enable = lib.mkForce false;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.lanzaboote = {
-    enable = true;
-    pkiBundle = "/var/lib/sbctl";
+  services = {
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      wireplumber.enable = true;
+    };
+    pulseaudio.enable = false;
+    resolved.enable = true;
   };
 
-  boot.kernelParams = [
-    "zswap.enabled=1"
-    "zswap.shrinker_enabled=1"
-    "zswap.compressor=zstd"
-    "zswap.max_pool_percent=30"
-    "nowatchdog"
-  ];
+  security.rtkit.enable = true;
 
   networking = {
     nameservers = [
@@ -32,23 +26,6 @@
       dns = "systemd-resolved";
     };
   };
-  services.resolved.enable = true;
-
-  users.users.nix.extraGroups = [
-    "networkmanager"
-  ];
-
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
-  services.displayManager.sddm.enable = true;
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "ko_KR.UTF-8";
@@ -80,7 +57,6 @@
     type = "fcitx5";
     fcitx5 = {
       waylandFrontend = true;
-
       addons = with pkgs; [
         fcitx5-hangul
         fcitx5-gtk
@@ -89,29 +65,12 @@
   };
 
   programs.firefox.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
   environment.systemPackages = with pkgs; [
-    sbctl
     vesktop
-    vscode
-    jetbrains.idea
-    thunderbird-esr
-    fastfetch
-    obsidian
-    (prismlauncher.override {
-      additionalLibs = [
-        jemalloc
-        libxtst
-        libxkbcommon
-        libxt
-        libxinerama
-      ];
-
-      jdks = [
-        "/opt/zulu-jdk-25"
-        "/opt/zulu-jdk-21"
-        "/opt/zulu-jdk-17"
-        "/opt/zulu-jdk-8"
-      ];
-    })
+    thunderbird
   ];
 }
