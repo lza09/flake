@@ -8,5 +8,6 @@
     ./rust.nix
     ./vscode.nix
     ./docker.nix
+    ./prismlauncher.nix
   ];
 }
