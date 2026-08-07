@@ -9,14 +9,15 @@
     login.kwallet.enable = false;
   };
 
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    kwallet
-    kwallet-pam
-    kwalletmanager
-    elisa
-    okular
-    khelpcenter
-    kate
+  environment.systemPackages = with pkgs.kdePackages; [
+  dolphin
+  konsole
+  spectacle
+  ark
+  gwenview
+  plasma-pa
+  bluedevil
+  kscreen
   ];
 
   xdg.portal = {
