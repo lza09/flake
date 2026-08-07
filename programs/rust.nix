@@ -5,10 +5,7 @@
     rustup
     rust-analyzer
     gcc
-    clang
-    llvm
     pkg-config
-    openssl
     cmake
     gnumake
   ];
@@ -18,7 +15,6 @@
     libraries = with pkgs; [
       stdenv.cc.cc.lib
       zlib
-      openssl
       libgcc
     ];
   };
