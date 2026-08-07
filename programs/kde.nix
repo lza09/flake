@@ -18,6 +18,9 @@
   plasma-pa
   bluedevil
   kscreen
+  krita
+  kdenlive
+  kolourpaint
   ];
 
   xdg.portal = {
