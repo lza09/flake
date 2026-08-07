@@ -1,12 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
   security.pam.services = {
-    sddm.kwallet.enable = false;
-    login.kwallet.enable = false;
+    sddm.kwallet.enable = lib.mkForce false;
+    login.kwallet.enable = lib.mkForce false;
   };
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
@@ -17,7 +17,6 @@
     kwallet
     kwallet-pam
     kwalletmanager
-    kwrite
     okular
     plasma-systemmonitor
     print-manager

@@ -10,7 +10,7 @@
 
       init.defaultBranch = "main";
 
-      user.signingkey = "9036A64B784AA588";
+      user.signingkey = "EB9ED80F781813B7";
       commit.gpgsign = true;
     };
   };
