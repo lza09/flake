@@ -9,18 +9,18 @@
     login.kwallet.enable = false;
   };
 
-  environment.systemPackages = with pkgs.kdePackages; [
-  dolphin
-  konsole
-  spectacle
-  ark
-  gwenview
-  plasma-pa
-  bluedevil
-  kscreen
-  krita
-  kdenlive
-  kolourpaint
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    kwallet
+    kwallet-pam
+    kwalletmanager
+    elisa
+    okular
+    khelpcenter
+    kate
+    discover
+    kwrite
+    qrca
+    print-manager
   ];
 
   xdg.portal = {
