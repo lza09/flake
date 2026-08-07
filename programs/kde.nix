@@ -10,17 +10,18 @@
   };
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    discover
+    elisa
+    kate
+    khelpcenter
     kwallet
     kwallet-pam
     kwalletmanager
-    elisa
-    okular
-    khelpcenter
-    kate
-    discover
     kwrite
-    qrca
+    okular
+    plasma-systemmonitor
     print-manager
+    qrca
   ];
 
   xdg.portal = {
