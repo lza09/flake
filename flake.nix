@@ -22,6 +22,8 @@
           ./configs/desktop.nix
           ./configs/laptop.nix
 
+          ./network/nftables.nix
+
           ./programs
         ];
       };

@@ -4,30 +4,38 @@
   environment.systemPackages = with pkgs; [
     (prismlauncher.override {
       additionalLibs = [
-        libgbm
-        glib
-        nss
-        nspr
-        atk
+        alsa-lib
         at-spi2-atk
-        libdrm
+        at-spi2-core
+        atk
+        cairo
+        cups
+        dbus
         expat
-        libxcb
-        libxkbcommon
+        flite
+        glib
+        glfw
+        gtk3
+        libGL
         libX11
         libXcomposite
+        libXcursor
         libXdamage
         libXext
         libXfixes
         libXrandr
-        gtk3
-        pango
-        cairo
-        alsa-lib
-        dbus
-        at-spi2-core
-        cups
+        libdrm
+        libgbm
+        libpulseaudio
+        libxcb
+        libxkbcommon
         libxshmfence
+        nodejs_24
+        nspr
+        nss
+        openal
+        pango
+        stdenv.cc.cc.lib
         wayland
       ];
       jdks = [

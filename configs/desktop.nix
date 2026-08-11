@@ -76,6 +76,7 @@
   environment.systemPackages = with pkgs; [
     vesktop
     thunderbird
+    obs-studio
     jetbrains.idea
     jetbrains.rust-rover
   ];
