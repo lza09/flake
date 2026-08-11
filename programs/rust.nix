@@ -8,5 +8,6 @@
     pkg-config
     cmake
     gnumake
+    zlib
   ];
 }
