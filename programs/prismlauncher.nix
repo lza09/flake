@@ -1,14 +1,6 @@
 { pkgs, ... }:
 
 {
-  programs.nix-ld = {
-    enable = true;
-
-    libraries = with pkgs; [
-      stdenv.cc.cc.lib
-    ];
-  };
-
   environment.systemPackages = with pkgs; [
     (prismlauncher.override {
       jdks = [
